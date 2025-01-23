@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pratap Kushwaha Portfolio</title>
+    <style>
+       
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1d1f27, #0d0e13);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        #backgroundCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+        }
+
+        .background-ticker {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            z-index: -1;
+        }
+
+        .ticker-text {
+            display: inline-block;
+            font-size: 1.5em;
+            color: rgba(255, 255, 255, 0.2);
+            animation: 5s linear 2s infinite none running ticker ;
+
+        }
+
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .name {
+            font-size: 2.5em;
+            color: #FFD700;
+            animation: glow 1.5s infinite;
+            transition: transform 0.3s;
+        }
+
+        .name:hover {
+            transform: scale(1.1) rotate(3deg);
+        }
+
+        .contact a, .linkedin a, .github a {
+            color: #00BFFF;
+            text-decoration: none;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .contact a:hover, .linkedin a:hover, .github a:hover {
+            color: #FFD700;
+            transform: scale(1.1);
+        }
+
+        /* Profile Section */
+        .profile {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .profile-pic {
+            border-radius: 50%;
+            margin-right: 20px;
+            width: 150px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 15px 5px #FFD700;
+        }
+
+        .intro {
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+
+        .intro:hover {
+            color: #FFD700;
+        }
+
+        /* Education Section */
+        .section-title {
+            font-size: 2em;
+            color: #FFD700;
+            text-align: left;
+            margin-bottom: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section-title:hover {
+            transform: scale(1.1);
+        }
+
+        .education-list li {
+            background: #333;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .education-list li:hover {
+            transform: translateX(10px);
+            background: #444;
+        }
+
+        /* Work Experience */
+        .job-title {
+            font-size: 1.5em;
+            color: #00BFFF;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .job-title:hover {
+            color: #FFD700;
+            transform: translateY(-5px);
+        }
+
+        .job-details li {
+            margin-bottom: 10px;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .job-details li:hover {
+            transform: translateX(10px);
+            background: #444;
+            border-radius: 5px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background: #333;
+        }
+
+        .footer-text {
+            transition: color 0.3s;
+        }
+
+        .footer-text:hover {
+            color: #FFD700;
+        }
+
+        /* Animations */
+        @keyframes glow {
+            0% { text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700; }
+            50% { text-shadow: 0 0 20px #FFD700, 0 0 30px #FFD700; }
+            100% { text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .profile {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-pic {
+                margin: 0 auto 20px auto;
+                width: 120px;
+            }
+
+            .intro {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+
+    <canvas id="backgroundCanvas"></canvas>
+    <div class="background-ticker">
+        <div class="ticker-text">
+            Pratap Kushwaha | Pratap Kushwaha | Pratap Kushwaha | Pratap Kushwaha |  Pratap Kushwaha | Pratap Kushwaha | Pratap Kushwaha | Pratap Kushwaha
+            
+        </div>
+    </div>
+    <div class="container">
+        <div class="header">
+            <h1 class="name">Pratap KUSHWAHA</h1>
+            <p class="contact">Contact: <a href="mailto:kushwahpratap766@gmail.com">kushwahpratap766@gmail.com</a></p>
+            <p class="linkedin">LinkedIn: <a href="https://www.linkedin.com/in/pratap-kushwaha-15b494257/">linkedin.com/in/pratap-kushwaha</a></p>
+            <p class="github">GitHub: <a href="https://github.com/pratapkushwaha">github.com/pratapkushwaha</a></p>
+        </div>
+        <table class="profile">
+            <tr>
+                <td><img src="https://scontent.fknu1-2.fna.fbcdn.net/v/t39.30808-6/415096342_1459229718351368_2865351157692509313_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=-X76qCGFIEkQ7kNvgHxMVxW&_nc_zt=23&_nc_ht=scontent.fknu1-2.fna&_nc_gid=AP16F5sEYVYpu6oAhdiW09R&oh=00_AYDOrzWGjYQQEJw8McuLRUtIjcdK6XiFNK9CpbVQxpUltA&oe=677C4EA0" alt="pratap-pic" class="profile-pic"></td>
+                <td class="intro">
+                    I am a passionate software engineer with expertise in problem-solving and algorithmic thinking. I love to explore various technologies and frameworks to develop efficient and scalable solutions.
+
+                </td>
+            </tr>
+        </table>
+        <section class="education">
+            <h2 class="section-title">Education</h2>
+            <ul class="education-list">
+                <li>Bachelor of Technology in Information Technology, Netaji Subhas Institute of Technology</li>
+                <li>A.E.S.N.T Rama Rao Memorial Senior Secondary School</li>
+            </ul>
+        </section>
+        <section class="work-experience">
+            <h2 class="section-title">Work Experience</h2>
+            <h3 class="job-title">Software Engineer, Microsoft</h3>
+            <ul class="job-details">
+                <li>Developed and maintained web applications using HTML, CSS, and JavaScript.</li>
+                <li>Collaborated with cross-functional teams to design and implement software solutions.</li>
+                <li>Optimized code performance and improved application efficiency.</li>
+            </ul>
+        </section>
+        <footer class="footer">
+            <p class="footer-text">© 2025 Pratap Kushwaha. All rights reserved</p>
+        </footer>
+    </div>
+    <script>
+        const canvas = document.getElementById("backgroundCanvas");
+        const ctx = canvas.getContext("2d");
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let particlesArray = [];
+
+        class Particle {
+            constructor(x, y, size, color, velocityX, velocityY) {
+                this.x = x;
+                this.y = y;
+                this.size = size;
+                this.color = color;
+                this.velocityX = velocityX;
+                this.velocityY = velocityY;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+
+            update() {
+                this.x += this.velocityX;
+                this.y += this.velocityY;
+
+                if (this.x + this.size > canvas.width || this.x - this.size < 0) {
+                    this.velocityX = -this.velocityX;
+                }
+                if (this.y + this.size > canvas.height || this.y - this.size < 0) {
+                    this.velocityY = -this.velocityY;
+                }
+
+                this.draw();
+            }
+        }
+
+        function initParticles() {
+            particlesArray = [];
+            for (let i = 0; i < 100; i++) {
+                const size = Math.random() * 5 + 1;
+                const x = Math.random() * canvas.width;
+                const y = Math.random() * canvas.height;
+                const color = rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 0.8);
+                const velocityX = (Math.random() * 1 - 0.5);
+                const velocityY = (Math.random() * 1 - 0.5);
+                particlesArray.push(new Particle(x, y, size, color, velocityX, velocityY));
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particlesArray.forEach((particle) => particle.update());
+            requestAnimationFrame(animateParticles);
+        }
+
+        initParticles();
+        animateParticles();
+
+        window.addEventListener("resize", () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initParticles();
+        });
+        
+   
+       
+    </script>
+</body>
+</html>
